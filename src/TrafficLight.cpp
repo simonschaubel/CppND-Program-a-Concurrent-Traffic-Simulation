@@ -80,6 +80,8 @@ void TrafficLight::cycleThroughPhases()
         int rand_sec = distribution(generator);
         _messageQueue.send(std::move(_currentPhase));
 
+        // This should be much more efficient since we run the loop only with the refresh rate of the traffic lights
+        // Are there any reasons why we souled update every 1ms if there is only a change every 4-6 seconds?
         std::this_thread::sleep_for(std::chrono::seconds(rand_sec));
     }
 }
