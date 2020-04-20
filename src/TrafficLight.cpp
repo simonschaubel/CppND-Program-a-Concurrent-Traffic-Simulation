@@ -4,7 +4,7 @@
 
 /* Implementation of class "MessageQueue" */
 
-/* 
+
 template <typename T>
 T MessageQueue<T>::receive()
 {
@@ -19,7 +19,7 @@ void MessageQueue<T>::send(T &&msg)
     // FP.4a : The method send should use the mechanisms std::lock_guard<std::mutex> 
     // as well as _condition.notify_one() to add a new message to the queue and afterwards send a notification.
 }
-*/
+
 
 /* Implementation of class "TrafficLight" */
 
@@ -65,7 +65,7 @@ void TrafficLight::cycleThroughPhases()
         std::uniform_int_distribution<int> distribution(4,6);
         int rand_sec = distribution(generator);
         _messageQueue.send(std::move(_currentPhase));
-        
+
         std::this_thread::sleep_for(std::chrono::seconds(rand_sec));
     }
 }
